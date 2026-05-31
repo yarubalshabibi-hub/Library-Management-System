@@ -114,8 +114,8 @@ namespace trying_about_Library_Management_System
                             }
                             break;
 
-                        case 8:
-                            if (isBookRegistered)
+                        case 8:// Book registration with optional genre
+                        if (isBookRegistered)
                                 Console.WriteLine("A book is already registered");
                             else
                             {
@@ -169,8 +169,8 @@ namespace trying_about_Library_Management_System
                             break;
 
                         case 12:
-                            if (!isMemberRegistered)
-                                Console.WriteLine("No member registered");
+                            if (isMemberRegistered == true)     // !isMemberRegistered
+                            Console.WriteLine("No member registered");
                             else
                             {
                                 Console.Write("Enter new email address: ");
@@ -249,10 +249,19 @@ namespace trying_about_Library_Management_System
                 memberTier = Console.ReadLine();
 
                 int prefixLen = Math.Min(3, memberName.Length);
+
+            if (prefixLen < 3)
+            {
+                Console.WriteLine("Invalid User Name");
+            }
+            else
+            {
+
+            }
                 string prefix = memberName.Substring(0, prefixLen).ToUpper();
 
                 string year = DateTime.Now.Year.ToString();
-                memberId = prefix + "-" + year + "-TEMP";
+                memberId = prefix + "-" + year + "-TEMP"; // AHM-2026-TEMP      |       AIH-2026-TEMP       |       YAR-2026-TEMP
 
                 isMemberRegistered = true;
                 Console.WriteLine("Member registered! Temporary ID: " + memberId);
@@ -341,7 +350,10 @@ namespace trying_about_Library_Management_System
                 Console.WriteLine("Book registered! Title: " + bookTitle + " | Genre: " + bookGenre);
             }
            
-       
+       static void CalculateRenewalFee()
+        {
+
+        }
                 }
             }
 
